@@ -1,5 +1,4 @@
 import { StyleSheet } from "react-native";
-import Colors from '../../../constants/themeSettings'
 
 export const styles = StyleSheet.create({
     turnOnBtn: {
@@ -30,11 +29,13 @@ export const styles = StyleSheet.create({
 
     onText: {
         fontSize: 18,
+        fontWeight: "500",
         color: "#202020",
     },
 
     offText: {
         fontSize: 18,
+        fontWeight: "500",
         color: "#202020",
     },
 
@@ -44,5 +45,19 @@ export const styles = StyleSheet.create({
         height: '100%',
         justifyContent: 'center',
         alignItems: 'center',
+    },
+
+    turnOnBtnColorChange: {
+        paddingVertical:  15,
+        paddingHorizontal: 30,
+        marginTop: 60,
+        backgroundColor: "#48EBE2",
+        borderRadius: 30,
+    },
+
+    angleText: {
+        fontSize: 18,
+        fontWeight: "500",
+        display: "none",
     },
 })

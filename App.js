@@ -5,13 +5,25 @@ import AddNewDevice from './components/screens/addNewDevice/AddNewDevice';
 import UserManual from './components/screens/userManual/UserManual';
 import About from './components/screens/about/About';
 import Contact from './components/screens/contact/Contact';
-
-
+//import { FIREBASE_APP } from './firebaseConfig';
+//import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 const Drawer = createDrawerNavigator();
 
-
 export default function App() {
+
+  // const FIREBASE_AUTH = getAuth(FIREBASE_APP);
+  
+
+  // signInWithEmailAndPassword(FIREBASE_AUTH, "user@gmail.com", 123456)
+  // .then((userCredential) => {
+  //   const user = userCredential.user;
+  //   alert(user.email);
+  // })
+  // .catch((error) => {
+  //   alert(error);
+  // });
+
   return (
     <NavigationContainer>
       <Drawer.Navigator>

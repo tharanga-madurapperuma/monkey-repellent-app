@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "monkey-repellent-app",
-    "slug": "monkey-repellent-app",
+    "name": "Monkey Repellent",
+    "slug": "Monkey Repellent",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/monkey.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/monkey.png",
