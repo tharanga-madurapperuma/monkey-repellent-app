@@ -1,10 +1,10 @@
 {
   "expo": {
     "name": "Monkey Repellent",
-    "slug": "Monkey Repellent",
+    "slug": "monkey-repellent-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/monkey.png",
+    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/monkey.png",
@@ -21,10 +21,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.tharanga_sandun.monkeyrepellentapp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "dd89f089-26da-415e-a153-e501600ccfe4"
+      }
     }
   }
 }

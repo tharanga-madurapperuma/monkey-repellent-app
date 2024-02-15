@@ -5,6 +5,9 @@ import AddNewDevice from './components/screens/addNewDevice/AddNewDevice';
 import UserManual from './components/screens/userManual/UserManual';
 import About from './components/screens/about/About';
 import Contact from './components/screens/contact/Contact';
+import DeviceSetup from './components/screens/setupDevice/DeviceSetup';
+import DeviceControl from './components/screens/deviceControl/DeviceControl';
+import ConnectionChange from './components/screens/connectionChange/ConnectionChange';
 //import { FIREBASE_APP } from './firebaseConfig';
 //import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
@@ -26,10 +29,13 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Drawer.Navigator>
+      <Drawer.Navigator initialRouteName='Home'>
       <Drawer.Screen component={Home} name='Home' />
       <Drawer.Screen component={AddNewDevice} name='Add New Device' />
       <Drawer.Screen component={UserManual} name='User Manual' />
+      <Drawer.Screen component={DeviceSetup} name='Setup Device' options={{drawerItemStyle: { height: 0 }}}/>
+      <Drawer.Screen component={DeviceControl} name='Controlling Device' options={{drawerItemStyle: { height: 0 }}}/>
+      <Drawer.Screen component={ConnectionChange} name='Change Connection' options={{drawerItemStyle: { height: 0 }}}/>
       <Drawer.Screen component={About} name='About' />
       <Drawer.Screen component={Contact} name='Contact' />
     </Drawer.Navigator>

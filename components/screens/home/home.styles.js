@@ -58,6 +58,5 @@ export const styles = StyleSheet.create({
     angleText: {
         fontSize: 18,
         fontWeight: "500",
-        display: "none",
     },
 })

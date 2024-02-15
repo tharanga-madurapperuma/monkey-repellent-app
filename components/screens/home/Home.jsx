@@ -1,4 +1,4 @@
-import React, { useEffect, useInsertionEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text} from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import {styles} from './home.styles';
@@ -15,10 +15,10 @@ const Home = () => {
   const FIREBASE_DB = getFirestore(FIREBASE_APP);
   const [deviceState, setDeviceState] = useState(false);
   const DEVICE_STATE = doc(FIREBASE_DB, "users", "7wDpVqY1i41GwpCkfp2O");
-  const STEPPER_ANGLE = doc(FIREBASE_DB, "users", "0u8xs1YWNvlL7jEjU1OB");
 
-  const [range, setRange] = useState(0);
-  const [sliderDisabled, setSliderDisabled] = useState(true);
+  const [range, setRange] = useState("0");
+  const [valueChange, setValueChange] = useState(0);
+  const [sliderDisabled, setSliderDisabled] = useState(false);
   const [btnColor1On, setBtnColor1On] = useState("#48EBE2");
   const [btnColor2On, setBtnColor2On] = useState("#42A26E");
   const [btnColor1Off, setBtnColor1Off] = useState("#48EBE2");
@@ -37,7 +37,7 @@ const Home = () => {
   
   useEffect(() => {
     async function stepperUpdate(){
-      await updateDoc(STEPPER_ANGLE, {
+      await updateDoc(DEVICE_STATE, {
         STEPPER_ANGLE: range,
       })
     };
@@ -101,17 +101,22 @@ const Home = () => {
 
         <Slider
           disabled={sliderDisabled}
-          style={{width: 300, height: 40, marginTop: 30}}
+          style={{width: 300, height: 40, marginTop: 30 }}
           minimumValue={0}
           maximumValue={360}
+          thumbTintColor='#42A26E'
           onValueChange={(value) => {
-            setRange(value);
+            setValueChange(Math.floor(value));
+          }}
+          onSlidingComplete={(value) => {
+            setRange(Math.floor(value).toString());
           }}
           minimumTrackTintColor="#000000"
-          maximumTrackTintColor="#000000"
+          maximumTrackTintColor="#000000" 
         />
+
         <Text 
-          style={styles.angleText}>Angle: {range}
+          style={styles.angleText}>Angle: {valueChange}
         </Text>
 
 
