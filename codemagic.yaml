@@ -1,36 +1,25 @@
 workflows:
   my-workflow:
-    name: My workflow name
-    labels:
-      - QA
-      - ${TENANT_NAME}
-    instance_type: mac_mini_m1
-    max_build_duration: 60
+    name: Monkey Repellent
     environment:
-      groups:
-        - group_name
       vars:
         PUBLIC_ENV_VAR: "value here"
-      flutter: stable
-      xcode: latest
-    cache:
-      cache_paths:
-        - ~/.pub-cache
+      node: latest
     triggering:
       events:
         - push
+        - tag
+        - pull_request
       branch_patterns:
-        - pattern: '*'
+        - pattern: develop
           include: true
           source: true
-      cancel_previous_builds: false
     scripts:
-      - ...
+      - npm install
+      - echo "sdk.dir=$HOME/programs/android-sdk-macosx" > "$FCI_BUILD_DIR/android/local.properties"
+      - 
+        # build Android
+        cd android
+        ./gradlew assembleDebug
     artifacts:
-      - build/**/outputs/bundle/**/*.aab
-    publishing:
-      email:
-        recipients:
-          - name@example.com
-      scripts:
-        - echo 'Post-publish script'
+      - android/app/build/outputs/**/*.apk
